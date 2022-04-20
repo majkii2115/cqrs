@@ -1,3 +1,5 @@
+using cqrs.Commands;
+using cqrs.DTOs;
 using cqrs.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,4 +23,11 @@ public class TodoController : ControllerBase
         var response = await _mediator.Send(new GetTodoById.Query(id));
         return response == null ? NotFound() : Ok(response);
     } 
+
+    [HttpPost("/add")]
+    public async Task<IActionResult> AddTodo(AddTodoDto addTodoDto)
+    {
+        var response = await _mediator.Send(new AddTodo.Command(addTodoDto));
+        return Ok(response);
+    }
 }
