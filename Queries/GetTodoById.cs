@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace cqrs.Queries;
-public static class GetTodoById
+public class GetTodoById
 {
     //Query/Command
     //All the data we need

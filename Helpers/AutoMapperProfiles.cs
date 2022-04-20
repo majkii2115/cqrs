@@ -8,5 +8,6 @@ public class AutoMapperProfiles : Profile
     public AutoMapperProfiles()
     {
         CreateMap<AddTodoDto, Todo>();
+        CreateMap<UpdateTodoDto, Todo>();
     }
 }
